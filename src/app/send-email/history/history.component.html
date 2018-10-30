@@ -1,0 +1,17 @@
+<mk-box header="Email Groups" [isCollapsable]="false" [isRemovable]="false">
+    <p>You can review email history here</p>
+      <table class="table table-bordered  table-condensed">
+        <tbody><tr>
+          <th style="width: 10px">#</th>
+          <th>Time</th>
+          <th class="text-center">Actions</th>
+        </tr>
+        <tr *ngFor="let record of historyRecods | async; let i = index">
+          <td>{{i+1}}.</td>
+          <td><a routerLink='/email/detail/{{record.ref}}'>{{record.created_at}}</a></td>
+          <td width="100" class="text-center">
+            <a class="btn btn-social-icon btn-github" (click)="onDelete(record)"><i class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+      </tbody></table>
+  </mk-box>

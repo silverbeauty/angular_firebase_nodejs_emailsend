@@ -1,0 +1,35 @@
+[debug] [2018-10-25T20:50:09.485Z] ----------------------------------------------------------------------
+[debug] [2018-10-25T20:50:09.489Z] Command:       E:\dev\nodejs\node.exe C:\Users\h\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2018-10-25T20:50:09.489Z] CLI Version:   5.1.1
+[debug] [2018-10-25T20:50:09.489Z] Platform:      win32
+[debug] [2018-10-25T20:50:09.489Z] Node Version:  v8.11.3
+[debug] [2018-10-25T20:50:09.490Z] Time:          Thu Oct 25 2018 22:50:09 GMT+0200 (FLE Standard Time)
+[debug] [2018-10-25T20:50:09.490Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-25T20:50:09.503Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-25T20:50:09.504Z] > authorizing via signed-in user
+[debug] [2018-10-25T20:50:09.504Z] [iam] checking project mailing-dev-80dc9 for permissions ["firebase.projects.get"]
+[debug] [2018-10-25T20:50:09.507Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-25T20:50:09.507Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-10-25T20:50:12.062Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-25T20:50:12.108Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mailing-dev-80dc9:testIamPermissions  
+
+[debug] [2018-10-25T20:50:14.924Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-25T20:50:14.925Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mailing-dev-80dc9  
+ 
+[debug] [2018-10-25T20:50:16.708Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'G:\angular'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-10-25T20:50:21.167Z] Fetching environment
+[debug] [2018-10-25T20:50:21.169Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/581721289629:getServerAppConfig  
+ 
+[debug] [2018-10-25T20:50:23.977Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-25T20:50:23.977Z] Starting @google-cloud/functions-emulator
+[debug] [2018-10-25T20:50:27.656Z] Parsing function triggers
+[info] +  functions: upload: http://localhost:5000/mailing-dev-80dc9/us-central1/upload
+[info] +  functions: uploadfile: http://localhost:5000/mailing-dev-80dc9/us-central1/uploadfile
+[info] +  functions: sendemails: http://localhost:5000/mailing-dev-80dc9/us-central1/sendemails
+[info] +  functions: sendemail: http://localhost:5000/mailing-dev-80dc9/us-central1/sendemail

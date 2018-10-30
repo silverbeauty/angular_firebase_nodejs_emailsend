@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-12" [ngClass]="{'col-md-4': group.ref!=null}">
+      <form >
+          <mk-box header="Group Infomation" [isCollapsable]="false" [isRemovable]="false" boxColor="primary">
+            <mk-box-content>
+              <div class="form-group">
+                <label class="control-label">Group Name</label>
+                <input type="text" class="form-control" [(ngModel)]="group.name" [ngModelOptions]="{standalone: true}"/>
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                  <div *ngIf="f.name.errors.required">Name is required</div>
+                </div>
+                
+              </div>
+              <div class="form-group">
+                <label class="control-label">Description</label>
+                <textarea type="text" class="form-control" [(ngModel)]="group.desc" [ngModelOptions]="{standalone: true}" style="min-height: 120px;"></textarea>
+              </div>
+              <div>
+                  <a class="btn btn-default" [routerLink]="['/templates']">Cancel</a>
+                  <button (click)="saveGroup()" type="submit" class="btn btn-primary pull-right">Register</button>
+                </div>
+            </mk-box-content>
+          </mk-box>    
+        </form>
+  </div>
+<div class="col-md-8">
+  
+<mk-box header="Mails" [isCollapsable]="false" [isRemovable]="false" boxColor="primary" contentStyleClass="no-padding"  *ngIf="group.ref">
+    <mk-box-tools>
+      <button class="btn btn-xs btn-success ml-5" style="margin-left: 5px;" (click)="validate()">Validate emails</button>&nbsp;
+      <input type="file" #file class="btn btn-xs btn-primary pull-right" value="Upload Excel" (change)="uploadFile()">
+    </mk-box-tools>
+    <mk-box-content>
+      <table class="table table-striped">
+        <tbody><tr>
+          <th style="width: 10px">#</th>
+          <th>Email</th>
+          <th style="width: 40px">Valid</th>
+        </tr>
+        <tr *ngFor="let item of this.group.list; let i = index">
+          <td>{{i + 1}}.</td>
+          <td>{{item.email}}</td>
+          <td><span class="badge {{getValidClass(item)}}">{{getValid(item)}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </mk-box-content>
+  </mk-box>
+  </div>
+</div>
+

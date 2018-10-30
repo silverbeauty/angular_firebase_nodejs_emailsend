@@ -1,0 +1,24 @@
+<mk-box header="Email Templates" [isCollapsable]="false" [isRemovable]="false">
+  <p>You can pre defined email templates here</p>
+    <div class="text-right">
+      <a class="btn btn-primary" [routerLink]="['/templates/post']">Add new template</a>
+    </div>
+    <br>
+    <table class="table table-bordered">
+      <tbody><tr>
+        <th style="width: 10px">#</th>
+        <th>Template Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let template of templates | async; let i = index">
+        <td>{{i+1}}.</td>
+        <td>{{template.name}}</td>
+        <td>{{template.description}}</td>
+        <td width="100" class="text-center">
+          <a class="btn btn-social-icon btn-github" [routerLink]="['post', template.ref]"><i class="fa fa-edit"></i></a>&nbsp;
+          <a class="btn btn-social-icon btn-github" (click)="onDelete(template, i)"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+    </tbody></table>
+</mk-box>

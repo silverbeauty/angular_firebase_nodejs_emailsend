@@ -1,0 +1,30 @@
+<mk-box header="Email Groups" [isCollapsable]="false" [isRemovable]="false">
+  <p>You can upload your email group here</p>
+    <div class="text-right">
+      <a class="btn btn-primary" [routerLink]="['/groups/post']">Upload emails</a>
+    </div>
+    <br>
+    <table class="table table-bordered  table-condensed">
+      <tbody><tr>
+        <th style="width: 10px">#</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Actions</th>
+      </tr>
+      <tr *ngFor="let group of groups | async; let i = index">
+        <td>{{i+1}}.</td>
+        <td>{{group.name}}</td>
+        <td>{{group.description}}</td>
+        <td width="150" class="text-center">
+          <small class="label badge bg-green">760000</small>
+          <small class="label badge bg-yellow">12</small>
+          <small class="label badge bg-red">11</small>
+        </td>
+        <td width="100" class="text-center">
+          <a class="btn btn-social-icon btn-github" [routerLink]="['/groups/post', group.ref]"><i class="fa fa-edit"></i></a>&nbsp;
+          <a class="btn btn-social-icon btn-github" (click)="onDelete(group)"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+    </tbody></table>
+</mk-box>

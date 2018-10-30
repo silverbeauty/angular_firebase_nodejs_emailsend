@@ -1,0 +1,41 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+  <mk-box header="Edit Template" [isCollapsable]="false" [isRemovable]="false" boxColor="primary">
+    <mk-box-content>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Template Name</label>
+        <div class="col-sm-10">
+          <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+          <textarea type="text" class="form-control" [(ngModel)]="desc" [ngModelOptions]="{standalone: true}" style="min-height: 120px;"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Content</label>
+        <div class="col-sm-10">
+          <td-code-editor style="height: 40vh;" editorStyle="border:0;" flex theme="vs-dark" language="html"
+          [(ngModel)]="content" [ngModelOptions]="{standalone: true}"
+          automaticLayout [editorOptions]="{readOnly:false, fontSize:16}"
+          ></td-code-editor>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Register</button>
+      </div> -->
+
+    </mk-box-content>
+    <mk-box-footer>
+      <a class="btn btn-default" [routerLink]="['/templates']">Cancel</a>
+      <button (click)="saveTemplate" type="submit" class="btn btn-primary pull-right">Register</button>
+
+    </mk-box-footer>
+
+  </mk-box>
+</form>

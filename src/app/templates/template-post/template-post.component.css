@@ -1,0 +1,6 @@
+.monaco-editor .margin {
+    margin: 0;
+}
+.monaco-editor {
+    background: red !important;
+}

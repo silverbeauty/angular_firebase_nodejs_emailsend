@@ -1,0 +1,61 @@
+<mk-box header="Sending Email" [isCollapsable]="false" [isRemovable]="false">
+  
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Mail Content</h3>
+      
+      <div class="box-body">
+        <div class="form-group">
+          <label for="">From</label>
+          <input type="email" class="form-control" [(ngModel)]="from"/>
+          
+        </div>
+        <div class="form-group">
+          <label for="">Subject</label>
+          <input type="text" class="form-control" [(ngModel)]="subject"/>
+          
+        </div>
+
+        <div class="form-group">
+            <label for="">Content</label>
+            <td-code-editor style="height: 40vh;" editorStyle="border:0;" flex theme="vs-dark" language="html"
+              automaticLayout [editorOptions]="{readOnly:false, fontSize:16}"
+              [(ngModel)]="content" [ngModelOptions]="{standalone: true}"
+            ></td-code-editor>
+            
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div>
+        <input class="btn ml-1" #file type="file" value="Upload Excel" (change)="onFilesAdded()" style="display: inline-block">
+        <button class="btn btn-success ml-5" style="margin-left: 5px;" (click)="validate()">Validate emails</button>
+        <button class="btn btn-success ml-5" style="margin-left: 5px;" (click)="sendEmail()">Send Email</button>
+      </div>
+      <br>
+      <div class="">Progress {{sub}}/{{total}}</div>
+      <div style="height: calc(100vh - 400px); overflow: auto">
+
+        
+      <table class="table table-striped">
+          <tbody><tr>
+            <th style="width: 10px">#</th>
+            <th>Email</th>
+            <th style="width: 40px">Sent</th>
+            <th style="width: 40px">Valid</th>
+          </tr>
+          <tr *ngFor="let key of getKeys(mergedEmails); let i = index">
+            <td>{{i}}.</td>
+            <td>{{mergedEmails.get(key).email}}</td>
+            <td><span class="badge {{getStatusClass(mergedEmails.get(key))}}">{{getStatus(mergedEmails.get(key))}}</span></td>
+            <td><span class="badge {{getValidClass(mergedEmails.get(key))}}">{{getValid(mergedEmails.get(key))}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</mk-box>
+
+

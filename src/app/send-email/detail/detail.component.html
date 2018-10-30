@@ -1,0 +1,47 @@
+<mk-box header="Sending Email" [isCollapsable]="false" [isRemovable]="false">
+  
+    <div class="row">
+      <div class="col-md-6">
+        <h3>History Content</h3>
+  
+        <div class="box-body">
+          <label for="">Subject</label>
+          <div class="form-group">
+              {{ subject }}
+          
+          </div>
+
+          <label for="">From</label>
+          <div class="form-group">
+              {{ from }}
+          
+          </div>
+  
+          <div class="form-group">
+              <label for="">Content</label>
+              <td-code-editor style="height: 40vh;" editorStyle="border:0;" flex theme="vs-dark" language="html"
+              [(ngModel)]="content" automaticLayout [editorOptions]="{readOnly:true, fontSize:16}"
+              ></td-code-editor>
+              
+            </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">          
+        <table class="table table-striped">
+            <tbody><tr>
+              <th>Email</th>
+              <th style="width: 40px">Sent</th>
+            </tr>
+            <tr *ngFor="let email of list">
+              <td>{{email.email}}.</td>
+              <td class="badge {{getStatusClass(email.sent)}}">{{email.sent}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+    </div>
+  </mk-box>
+  
+  
+  
